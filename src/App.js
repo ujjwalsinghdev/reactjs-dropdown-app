@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+//PARENT COMPONENT FROM WHERE DATA WILL BE SEND TO CHILD COMPONENT
+import React, { useState } from "react"
 
-function App() {
+import Dropdown from "./Dropdown"
+import options from "./countries.json"
+
+const App = () => {
+  //value state for option selection
+  const [value, setValue] = useState(null)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ width: 200 }}>
+      <Dropdown options={options} prompt="select countries.." value={value} onchange={(val) => setValue(val)}></Dropdown>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
