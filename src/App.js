@@ -1,16 +1,12 @@
-//PARENT COMPONENT FROM WHERE DATA WILL BE SEND TO CHILD COMPONENT
-import React, { useState } from "react"
+import React from "react"
+import "./App.css"
+import SearchBar from "./Components/SearchBar"
+import CountryData from "./CountryData.json"
 
-import Dropdown from "./Dropdown"
-import options from "./countries.json"
-
-const App = () => {
-  //value state for option selection
-  const [value, setValue] = useState(null)
-
+function App() {
   return (
-    <div style={{ width: 200 }}>
-      <Dropdown options={options} prompt="select countries.." value={value} onchange={(val) => setValue(val)}></Dropdown>
+    <div className="App">
+      <SearchBar placeholder="Enter a Country Name..." data={CountryData} />
     </div>
   )
 }
